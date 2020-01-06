@@ -1,0 +1,43 @@
+<div class="row my-4">
+    <div class="col-md-6">
+        <h3>liste des packs</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="form-group">
+            <label for="label">Titre du PACK</label>
+            <input [(ngModel)]="nvpack.titre" id="label" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="label">Description du PACK</label>
+            <input [(ngModel)]="nvpack.description" id="label" type="text" class="form-control">
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input [(ngModel)]="nvpack.disponible" type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >
+            Disponible
+          </label>
+        </div>
+        <div (click)="add()" class="button btn btn-success btn-block"><i class="fa fa-send"></i>  Ajouter le pack</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <ul class="list-group">
+            <li *ngFor="let pack of packs" class="list-group-item d-flex justify-content-between align-items-center">
+                <button class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></button>
+                <span class="badge badge-secondary badge-pill">{{pack.titre}}</span>
+                <span (click)="disponible(pack)" [ngClass]="{
+                    'badge-info':pack.disponible,
+                    'badge-danger':!pack.disponible
+                }" class="badge badge-danger badge-pill">
+                <i class="fa" [ngClass]="{
+                    'fa-thumbs-up' : pack.disponible,
+                    'fa-thumbs-down':!pack.disponible
+                }"></i></span>
+                <button (click)="deletePack(pack.id)" class="btn btn-sm btn-dark"><i class="fa fa-trash"></i></button>
+            </li>
+        </ul>
+    </div>
+</div>
