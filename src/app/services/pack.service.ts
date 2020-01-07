@@ -26,4 +26,6 @@ export class PackService {
   disponible(id, disponible){
     return this.http.patch(`${this.apiUrl}/${id}`, {disponible: !disponible});
   }
+
+  
 }

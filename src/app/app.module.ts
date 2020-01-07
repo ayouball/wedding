@@ -8,6 +8,7 @@ import { ContentComponent } from './components/content/content.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxDropzoneModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,6 +16,7 @@ export class ContentComponent implements OnInit {
     disponible : true
   }
   packs: Pack[] = [];
+  files: File[] = [];
 
   constructor(private packService : PackService) { }
 
@@ -62,6 +63,16 @@ export class ContentComponent implements OnInit {
     this.packService.disponible(pack.id,pack.disponible).subscribe(()=>{
       pack.disponible = !pack.disponible;
     });
+  }
+
+  onSelect(event) {
+    console.log(event);
+    this.files.push(...event.addedFiles);
+  }
+
+  onRemove(event) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
   }
 
 }
