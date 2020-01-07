@@ -20,6 +20,9 @@ export class PackService {
   add(pack){
     return this.http.post<Pack>(this.apiUrl, pack);
   }
+  update(pack){
+    return this.http.put(`${this.apiUrl}/${pack.id}`, {pack : pack});
+  }
   disponible(id, disponible){
     return this.http.patch(`${this.apiUrl}/${id}`, {disponible: !disponible});
   }

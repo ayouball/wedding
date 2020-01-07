@@ -8,6 +8,8 @@ import { Pack } from 'src/app/models/pack';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
+  editForm = false;
+  showform =false;
   nvpack: Pack = {
     titre : '',
     description : '',
@@ -36,6 +38,11 @@ export class ContentComponent implements OnInit {
     });
   }
 
+  edit(pack){
+    this.nvpack=pack
+    this.editForm = true;
+  }
+
   reset(){
     this.nvpack={
       titre : '',
@@ -44,11 +51,17 @@ export class ContentComponent implements OnInit {
     }
   }
 
+  update(){
+    this.packService.update(this.nvpack).subscribe(pack => {
+      this.reset();
+      this.editForm = false;
+    });
+  }
+
   disponible(pack){
     this.packService.disponible(pack.id,pack.disponible).subscribe(()=>{
       pack.disponible = !pack.disponible;
     });
   }
-
 
 }

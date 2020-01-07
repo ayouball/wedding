@@ -1,9 +1,14 @@
 <div class="row my-4">
     <div class="col-md-6">
-        <h3>liste des packs</h3>
+        <h3>Liste des packs</h3>
+    </div>
+    <div class="col-md-6 text-right">
+        <button (click)="showForm = !showForm" class="btn btn-dark btn-sm">
+            <i class="fa fa-plus"></i> Ajouter un pack
+        </button>
     </div>
 </div>
-<div class="row">
+<div class="row" *ngIf="showForm">
     <div class="col-md-6 mx-auto">
         <div class="form-group">
             <label for="label">Titre du PACK</label>
@@ -19,14 +24,15 @@
             Disponible
           </label>
         </div>
-        <div (click)="add()" class="button btn btn-success btn-block"><i class="fa fa-send"></i>  Ajouter le pack</div>
+        <div *ngIf="!editForm" (click)="add()" class="button btn btn-success btn-block"><i class="fa fa-send"></i>  Ajouter le pack</div>
+
+        <div *ngIf="editForm" (click)="update()" class="button btn btn-warning btn-block"><i class="fa fa-refresh"></i>  Modifier le pack</div>
     </div>
 </div>
 <div class="row">
     <div class="col-md-6 mx-auto">
         <ul class="list-group">
             <li *ngFor="let pack of packs" class="list-group-item d-flex justify-content-between align-items-center">
-                <button class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></button>
                 <span class="badge badge-secondary badge-pill">{{pack.titre}}</span>
                 <span (click)="disponible(pack)" [ngClass]="{
                     'badge-info':pack.disponible,
@@ -36,7 +42,8 @@
                     'fa-thumbs-up' : pack.disponible,
                     'fa-thumbs-down':!pack.disponible
                 }"></i></span>
-                <button (click)="deletePack(pack.id)" class="btn btn-sm btn-dark"><i class="fa fa-trash"></i></button>
+                <button  (click)="edit(pack)" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></button>
+                <button  (click)="deletePack(pack.id)" class="btn btn-sm btn-dark"><i class="fa fa-trash"></i></button>
             </li>
         </ul>
     </div>
