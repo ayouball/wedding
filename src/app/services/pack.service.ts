@@ -8,6 +8,7 @@ import { Pack } from '../models/pack';
 export class PackService {
 
   apiUrl = "http://localhost:3000/api/packs";
+  apiImage = "http://localhost:3000/api/images";
 
   constructor(private http:HttpClient) { }
 
@@ -25,6 +26,11 @@ export class PackService {
   }
   disponible(id, disponible){
     return this.http.patch(`${this.apiUrl}/${id}`, {disponible: !disponible});
+  }
+
+  
+  uploadImages(){
+
   }
 
   
