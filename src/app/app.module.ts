@@ -10,13 +10,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import {FileUploadModule} from 'ng2-file-upload';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ContentComponent
+    ContentComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
