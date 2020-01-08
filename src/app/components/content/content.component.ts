@@ -9,58 +9,61 @@ import { Pack } from 'src/app/models/pack';
 })
 export class ContentComponent implements OnInit {
   editForm = false;
-  showform =false;
+  showForm = false;
   nvpack: Pack = {
     titre : '',
     description : '',
     disponible : true
-  }
+  };
   packs: Pack[] = [];
   files: File[] = [];
 
-  constructor(private packService : PackService) { }
+  constructor(private packService: PackService) { }
 
   ngOnInit() {
     this.getPacks();
   }
 
-  getPacks(){
+  getPacks() {
     this.packService.findAll().subscribe(packs => this.packs = packs );
   }
 
-  deletePack(id){
-    this.packService.delete(id).subscribe(()=>{this.packs = this.packs.filter(pack => pack.id != id)});
+  deletePack(id) {
+    this.packService.delete(id)
+    .subscribe(() => {
+      this.packs = this.packs.filter(pack => pack.id !== id);
+    });
   }
 
-  add(){
+  add() {
     this.packService.add(this.nvpack).subscribe((pack) => {
       this.packs = [pack, ...this.packs];
       this.reset();
     });
   }
 
-  edit(pack){
-    this.nvpack=pack
+  edit(pack) {
+    this.nvpack = pack;
     this.editForm = true;
   }
 
-  reset(){
-    this.nvpack={
+  reset() {
+    this.nvpack = {
       titre : '',
       description : '',
       disponible: true
-    }
+    };
   }
 
-  update(){
+  update() {
     this.packService.update(this.nvpack).subscribe(pack => {
       this.reset();
       this.editForm = false;
     });
   }
 
-  disponible(pack){
-    this.packService.disponible(pack.id,pack.disponible).subscribe(()=>{
+  disponible(pack) {
+    this.packService.disponible(pack.id, pack.disponible).subscribe(() => {
       pack.disponible = !pack.disponible;
     });
   }
