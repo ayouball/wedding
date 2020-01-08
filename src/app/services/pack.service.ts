@@ -8,38 +8,35 @@ import { Observable } from 'rxjs';
 })
 export class PackService {
 
-  apiUrl = "http://localhost:3000/api/packs";
+  apiUrl = "http://localhost:8080";
 
   constructor(private http:HttpClient) { }
 
   findAll(){
-    return this.http.get<Pack[]>(this.apiUrl);
+    return this.http.get<Pack[]>(this.apiUrl+"/offre/");
   }
   delete(id){
-    return this.http.delete(`${this.apiUrl}/${id}`);
+    return this.http.delete(this.apiUrl+"/offre/"+id);
   }
   add(pack){
-    return this.http.post<Pack>(this.apiUrl, pack);
+    return this.http.post<Pack>(this.apiUrl+"/offre/", pack);
   }
   update(pack){
-    return this.http.put(`${this.apiUrl}/${pack.id}`, pack);
+    return this.http.put(this.apiUrl+"/offre/"+pack.id, pack);
   }
   disponible(id, disponible){
-    return this.http.patch(`${this.apiUrl}/${id}`, {disponible: !disponible});
+    return this.http.put(this.apiUrl+"/offre/"+id+"/disponibilte", {disponible: !disponible});
   }
 
-  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-      'Content-Type': 'multipart/form-data',
-      'Access-Control-Allow-Origin' : '*',
-      'Access-Control-Allow-Methods' : 'GET, POST, PUT, DELETE'
-      })
-  };
-    const data: FormData = new FormData();
-    data.append('file', file);
-    const newRequest = new HttpRequest('POST', 'http://192.168.1.104:8080/image/', data);
-    return this.http.request(newRequest);
-    }
+  uploadPhotoProduct(file: File): Observable<HttpEvent<{}>> {
+    let formdata: FormData = new FormData();
+    formdata.append('file', file);
+    const req = new HttpRequest('POST', this.apiUrl+'/uploadFile/', formdata, {
+      reportProgress: true,
+      responseType: 'text'
+    });
+
+    return this.http.request(req);
+  }
   
 }

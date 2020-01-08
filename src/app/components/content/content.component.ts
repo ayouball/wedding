@@ -22,13 +22,19 @@ export class ContentComponent implements OnInit {
   files: File[] = [];
 
   title = 'File-Upload-Save';
-  selectedFiles: FileList;
-  currentFileUpload: File;
-  progress: { percentage: number } = { percentage: 0 };
+  //selectedFiles: FileList;
+  //currentFileUpload: File;
+  //progress: { percentage: number } = { percentage: 0 };
   selectedFile = null;
   changeImage = false;
 
-  
+  currentProduct;
+  selectedFiles;
+  progress: number;
+  currentFileUpload: any;
+  private currentTime: number;
+  private editPhoto: boolean;
+  private mode: number=0;
 
   constructor(private packService : PackService) { }
   
@@ -49,6 +55,7 @@ export class ContentComponent implements OnInit {
     this.packService.add(this.nvpack).subscribe((pack) => {
       this.packs = [pack, ...this.packs];
       this.reset();
+      this.uploadPhoto();
     });
   }
 
@@ -78,38 +85,37 @@ export class ContentComponent implements OnInit {
     });
   }
 
-  onSelect(event) {
-    console.log(event);
-    this.files.push(...event.addedFiles);
+
+  onEditPhoto(p) {
+    this.currentProduct=p;
+    this.editPhoto=true;
   }
 
-  onRemove(event) {
-    console.log(event);
-    this.files.splice(this.files.indexOf(event), 1);
+  onSelectedFile(event) {
+    this.selectedFiles=event.target.files;
+  }
+
+  uploadPhoto() {
+    for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.progress = 0;
+      this.currentFileUpload = this.selectedFiles.item(i)
+      this.packService.uploadPhotoProduct(this.currentFileUpload).subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.progress = Math.round(100 * event.loaded / event.total);
+        } else if (event instanceof HttpResponse) {
+          //console.log(this.router.url);
+          //this.getProducts(this.currentRequest);
+          //this.refreshUpdatedProduct();
+          this.currentTime=Date.now();
+          this.editPhoto=false;
+        }
+      },err=>{
+        alert("Problème de chargement");
+      })
+    }
+    
+
+    this.selectedFiles = undefined
   }
   
-  change($event) {
-    this.changeImage = true;
-    }
-    changedImage(event) {
-    this.selectedFile = event.target.files[0];
-    }
-    upload() {
-    this.progress.percentage = 0;
-    this.currentFileUpload = this.selectedFiles.item(0);
-    this.packService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
-    if (event.type === HttpEventType.UploadProgress) {
-    this.progress.percentage = Math.round(100 * event.loaded / event.total);
-    } else if (event instanceof HttpResponse) {
-    alert('File Successfully Uploaded');
-    }
-    this.selectedFiles = undefined;
-    }
-    );
-    }
-
-    selectFile(event) {
-    this.selectedFiles = event.target.files;
-    }
-
 }
