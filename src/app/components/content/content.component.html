@@ -18,13 +18,17 @@
             <label for="label">Description du PACK</label>
             <input [(ngModel)]="nvpack.description" id="label" type="text" class="form-control">
         </div>
-        <div class="col-sm-14">
+       <!-- <div class="col-sm-14">
             <ngx-dropzone (change)="onSelect($event)">
                 <ngx-dropzone-label>Glissez les images ici !</ngx-dropzone-label>
                 <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
                 </ngx-dropzone-image-preview>
             </ngx-dropzone>   
-        </div> 
+        </div> -->
+
+        <input type="file" id="customFile" (change)="selectFile($event)">
+        <button class="btn btn-primary" [disabled]="!selectedFiles || admincheck || status" (click)="upload()">Save File</button>
+
         <div class="form-check">
           <label class="form-check-label">
             <input [(ngModel)]="nvpack.disponible" type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >

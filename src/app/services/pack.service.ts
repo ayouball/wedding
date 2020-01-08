@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Pack } from '../models/pack';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpEvent, HttpRequest, HttpHeaders  } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,6 @@ import { Pack } from '../models/pack';
 export class PackService {
 
   apiUrl = "http://localhost:3000/api/packs";
-  apiImage = "http://localhost:3000/api/images";
 
   constructor(private http:HttpClient) { }
 
@@ -22,16 +22,24 @@ export class PackService {
     return this.http.post<Pack>(this.apiUrl, pack);
   }
   update(pack){
-    return this.http.put(`${this.apiUrl}/${pack.id}`, {pack : pack});
+    return this.http.put(`${this.apiUrl}/${pack.id}`, pack);
   }
   disponible(id, disponible){
     return this.http.patch(`${this.apiUrl}/${id}`, {disponible: !disponible});
   }
 
-  
-  uploadImages(){
-
-  }
-
+  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+      'Content-Type': 'multipart/form-data',
+      'Access-Control-Allow-Origin' : '*',
+      'Access-Control-Allow-Methods' : 'GET, POST, PUT, DELETE'
+      })
+  };
+    const data: FormData = new FormData();
+    data.append('file', file);
+    const newRequest = new HttpRequest('POST', 'http://192.168.1.104:8080/image/', data);
+    return this.http.request(newRequest);
+    }
   
 }

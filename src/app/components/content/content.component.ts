@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PackService } from 'src/app/services/pack.service';
 import { Pack } from 'src/app/models/pack';
+import { HttpResponse, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-content',
@@ -10,15 +11,27 @@ import { Pack } from 'src/app/models/pack';
 export class ContentComponent implements OnInit {
   editForm = false;
   showform =false;
+
   nvpack: Pack = {
     titre : '',
     description : '',
     disponible : true
   }
+
   packs: Pack[] = [];
   files: File[] = [];
 
+  title = 'File-Upload-Save';
+  selectedFiles: FileList;
+  currentFileUpload: File;
+  progress: { percentage: number } = { percentage: 0 };
+  selectedFile = null;
+  changeImage = false;
+
+  
+
   constructor(private packService : PackService) { }
+  
 
   ngOnInit() {
     this.getPacks();
@@ -74,5 +87,29 @@ export class ContentComponent implements OnInit {
     console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
   }
+  
+  change($event) {
+    this.changeImage = true;
+    }
+    changedImage(event) {
+    this.selectedFile = event.target.files[0];
+    }
+    upload() {
+    this.progress.percentage = 0;
+    this.currentFileUpload = this.selectedFiles.item(0);
+    this.packService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+    if (event.type === HttpEventType.UploadProgress) {
+    this.progress.percentage = Math.round(100 * event.loaded / event.total);
+    } else if (event instanceof HttpResponse) {
+    alert('File Successfully Uploaded');
+    }
+    this.selectedFiles = undefined;
+    }
+    );
+    }
+
+    selectFile(event) {
+    this.selectedFiles = event.target.files;
+    }
 
 }

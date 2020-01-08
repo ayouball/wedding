@@ -9,6 +9,8 @@ import { ContentComponent } from './components/content/content.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import {FileUploadModule} from 'ng2-file-upload';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    FileUploadModule
   ],
   providers: [],
   bootstrap: [AppComponent]
