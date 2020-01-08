@@ -28,10 +28,10 @@ export class PackService {
     return this.http.put(this.apiUrl+"/offre/"+id+"/disponibilte", {disponible: !disponible});
   }
 
-  uploadPhotoProduct(file: File): Observable<HttpEvent<{}>> {
+  uploadPhotoProduct(file: File, id): Observable<HttpEvent<{}>> {
     let formdata: FormData = new FormData();
     formdata.append('file', file);
-    const req = new HttpRequest('POST', this.apiUrl+'/uploadFile/', formdata, {
+    const req = new HttpRequest('POST', this.apiUrl+'/uploadFile/'+id, formdata, {
       reportProgress: true,
       responseType: 'text'
     });

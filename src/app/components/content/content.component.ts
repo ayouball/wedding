@@ -53,9 +53,10 @@ export class ContentComponent implements OnInit {
 
   add(){
     this.packService.add(this.nvpack).subscribe((pack) => {
+      console.log(pack)
       this.packs = [pack, ...this.packs];
       this.reset();
-      this.uploadPhoto();
+      this.uploadPhoto(pack.id);
     });
   }
 
@@ -86,6 +87,7 @@ export class ContentComponent implements OnInit {
   }
 
 
+
   onEditPhoto(p) {
     this.currentProduct=p;
     this.editPhoto=true;
@@ -95,11 +97,11 @@ export class ContentComponent implements OnInit {
     this.selectedFiles=event.target.files;
   }
 
-  uploadPhoto() {
+  uploadPhoto(id) {
     for (let i = 0; i < this.selectedFiles.length; i++) {
       this.progress = 0;
       this.currentFileUpload = this.selectedFiles.item(i)
-      this.packService.uploadPhotoProduct(this.currentFileUpload).subscribe(event => {
+      this.packService.uploadPhotoProduct(this.currentFileUpload,id).subscribe(event => {
         if (event.type === HttpEventType.UploadProgress) {
           this.progress = Math.round(100 * event.loaded / event.total);
         } else if (event instanceof HttpResponse) {
@@ -112,9 +114,7 @@ export class ContentComponent implements OnInit {
       },err=>{
         alert("Problème de chargement");
       })
-    }
-    
-
+  }
     this.selectedFiles = undefined
   }
   
