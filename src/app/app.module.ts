@@ -11,6 +11,9 @@ import { FormsModule} from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import {FileUploadModule} from 'ng2-file-upload';
 import { HomeComponent } from './home/home.component';
+import { TablesComponent } from './components/tables/tables.component';
+import { DecorationsComponent } from './components/decorations/decorations.component';
+import { DecorationServicesService } from 'src/app/services/decoration-services.service';
 
 
 @NgModule({
@@ -18,7 +21,9 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     NavbarComponent,
     ContentComponent,
-    HomeComponent
+    HomeComponent,
+    TablesComponent,
+    DecorationsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,9 @@ import { HomeComponent } from './home/home.component';
     NgxDropzoneModule,
     FileUploadModule
   ],
-  providers: [],
+  providers: [
+    DecorationServicesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

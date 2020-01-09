@@ -61,6 +61,7 @@ export class ContentComponent implements OnInit {
   }
 
   edit(pack){
+    this.showform = true;
     this.nvpack=pack
     this.editForm = true;
   }
