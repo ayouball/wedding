@@ -1,0 +1,376 @@
+warning: LF will be replaced by CRLF in angular.json.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in package-lock.json.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in package.json.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in src/app/app.module.ts.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in src/app/home/home.component.html.
+The file will have its original line endings in your working directory.
+warning: LF will be replaced by CRLF in src/app/home/home.component.ts.
+The file will have its original line endings in your working directory.
+[1mdiff --git a/angular.json b/angular.json[m
+[1mindex 176e30b..8566b9c 100644[m
+[1m--- a/angular.json[m
+[1m+++ b/angular.json[m
+[36m@@ -120,6 +120,124 @@[m
+           }[m
+         }[m
+       }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "user": {[m
+[32m+[m[32m      "projectType": "application",[m
+[32m+[m[32m      "schematics": {},[m
+[32m+[m[32m      "root": "projects/user",[m
+[32m+[m[32m      "sourceRoot": "projects/user/src",[m
+[32m+[m[32m      "prefix": "app",[m
+[32m+[m[32m      "architect": {[m
+[32m+[m[32m        "build": {[m
+[32m+[m[32m          "builder": "@angular-devkit/build-angular:browser",[m
+[32m+[m[32m          "options": {[m
+[32m+[m[32m            "outputPath": "dist/user",[m
+[32m+[m[32m            "index": "projects/user/src/index.html",[m
+[32m+[m[32m            "main": "projects/user/src/main.ts",[m
+[32m+[m[32m            "polyfills": "projects/user/src/polyfills.ts",[m
+[32m+[m[32m            "tsConfig": "projects/user/tsconfig.app.json",[m
+[32m+[m[32m            "aot": false,[m
+[32m+[m[32m            "assets": [[m
+[32m+[m[32m              "projects/user/src/favicon.ico",[m
+[32m+[m[32m              "projects/user/src/assets"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "styles": [[m
+[32m+[m[32m              "projects/user/src/styles.css"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "scripts": [][m
+[32m+[m[32m          },[m
+[32m+[m[32m          "configurations": {[m
+[32m+[m[32m            "production": {[m
+[32m+[m[32m              "fileReplacements": [[m
+[32m+[m[32m                {[m
+[32m+[m[32m                  "replace": "projects/user/src/environments/environment.ts",[m
+[32m+[m[32m                  "with": "projects/user/src/environments/environment.prod.ts"[m
+[32m+[m[32m                }[m
+[32m+[m[32m              ],[m
+[32m+[m[32m              "optimization": true,[m
+[32m+[m[32m              "outputHashing": "all",[m
+[32m+[m[32m              "sourceMap": false,[m
+[32m+[m[32m              "extractCss": true,[m
+[32m+[m[32m              "namedChunks": false,[m
+[32m+[m[32m              "aot": true,[m
+[32m+[m[32m              "extractLicenses": true,[m
+[32m+[m[32m              "vendorChunk": false,[m
+[32m+[m[32m              "buildOptimizer": true,[m
+[32m+[m[32m              "budgets": [[m
+[32m+[m[32m                {[m
+[32m+[m[32m                  "type": "initial",[m
+[32m+[m[32m                  "maximumWarning": "2mb",[m
+[32m+[m[32m                  "maximumError": "5mb"[m
+[32m+[m[32m                },[m
+[32m+[m[32m                {[m
+[32m+[m[32m                  "type": "anyComponentStyle",[m
+[32m+[m[32m                  "maximumWarning": "6kb",[m
+[32m+[m[32m                  "maximumError": "10kb"[m
+[32m+[m[32m                }[m
+[32m+[m[32m              ][m
+[32m+[m[32m            }[m
+[32m+[m[32m          }[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "serve": {[m
+[32m+[m[32m          "builder": "@angular-devkit/build-angular:dev-server",[m
+[32m+[m[32m          "options": {[m
+[32m+[m[32m            "browserTarget": "user:build"[m
+[32m+[m[32m          },[m
+[32m+[m[32m          "configurations": {[m
+[32m+[m[32m            "production": {[m
+[32m+[m[32m              "browserTarget": "user:build:production"[m
+[32m+[m[32m            }[m
+[32m+[m[32m          }[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "extract-i18n": {[m
+[32m+[m[32m          "builder": "@angular-devkit/build-angular:extract-i18n",[m
+[32m+[m[32m          "options": {[m
+[32m+[m[32m            "browserTarget": "user:build"[m
+[32m+[m[32m          }[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "test": {[m
+[32m+[m[32m          "builder": "@angular-devkit/build-angular:karma",[m
+[32m+[m[32m          "options": {[m
+[32m+[m[32m            "main": "projects/user/src/test.ts",[m
+[32m+[m[32m            "polyfills": "projects/user/src/polyfills.ts",[m
+[32m+[m[32m            "tsConfig": "projects/user/tsconfig.spec.json",[m
+[32m+[m[32m            "karmaConfig": "projects/user/karma.conf.js",[m
+[32m+[m[32m            "assets": [[m
+[32m+[m[32m              "projects/user/src/favicon.ico",[m
+[32m+[m[32m              "projects/user/src/assets"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "styles": [[m
+[32m+[m[32m              "projects/user/src/styles.css"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "scripts": [][m
+[32m+[m[32m          }[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "lint": {[m
+[32m+[m[32m          "builder": "@angular-devkit/build-angular:tslint",[m
+[32m+[m[32m          "options": {[m
+[32m+[m[32m            "tsConfig": [[m
+[32m+[m[32m              "projects/user/tsconfig.app.json",[m
+[32m+[m[32m              "projects/user/tsconfig.spec.json",[m
+[32m+[m[32m              "projects/user/e2e/tsconfig.json"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "exclude": [[m
+[32m+[m[32m              "**/node_modules/**"[m
+[32m+[m[32m            ][m
+[32m+[m[32m          }[m
+[32m+[m[32m        },[m
+[32m+[m[32m        "e2e": {[m
+[32m+[m[32m          "builder": "@angular-devkit/build-angular:protractor",[m
+[32m+[m[32m          "options": {[m
+[32m+[m[32m            "protractorConfig": "projects/user/e2e/protractor.conf.js",[m
+[32m+[m[32m            "devServerTarget": "user:serve"[m
+[32m+[m[32m          },[m
+[32m+[m[32m          "configurations": {[m
+[32m+[m[32m            "production": {[m
+[32m+[m[32m              "devServerTarget": "user:serve:production"[m
+[32m+[m[32m            }[m
+[32m+[m[32m          }[m
+[32m+[m[32m        }[m
+[32m+[m[32m      }[m
+     }},[m
+   "defaultProject": "wedding"[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/package-lock.json b/package-lock.json[m
+[1mindex 991ed56..0517dfb 100644[m
+[1m--- a/package-lock.json[m
+[1m+++ b/package-lock.json[m
+[36m@@ -130,7 +130,7 @@[m
+       "resolved": "https://registry.npmjs.org/@angular/animations/-/animations-8.2.14.tgz",[m
+       "integrity": "sha512-3Vc9TnNpKdtvKIXcWDFINSsnwgEMiDmLzjceWg1iYKwpeZGQahUXPoesLwQazBMmxJzQiA4HOMj0TTXKZ+Jzkg==",[m
+       "requires": {[m
+[31m-        "tslib": "1.10.0"[m
+[32m+[m[32m        "tslib": "^1.9.0"[m
+       }[m
+     },[m
+     "@angular/cli": {[m
+[36m@@ -146,7 +146,7 @@[m
+         "@schematics/update": "0.803.21",[m
+         "@yarnpkg/lockfile": "1.1.0",[m
+         "ansi-colors": "4.1.1",[m
+[31m-        "debug": "4.1.1",[m
+[32m+[m[32m        "debug": "^4.1.1",[m
+         "ini": "1.3.5",[m
+         "inquirer": "6.5.1",[m
+         "npm-package-arg": "6.1.0",[m
+[36m@@ -157,8 +157,8 @@[m
+         "rimraf": "3.0.0",[m
+         "semver": "6.3.0",[m
+         "symbol-observable": "1.2.0",[m
+[31m-        "universal-analytics": "0.4.20",[m
+[31m-        "uuid": "3.3.3"[m
+[32m+[m[32m        "universal-analytics": "^0.4.20",[m
+[32m+[m[32m        "uuid": "^3.3.2"[m
+       },[m
+       "dependencies": {[m
+         "ansi-colors": {[m
+[36m@@ -173,7 +173,7 @@[m
+           "integrity": "sha512-NDGVxTsjqfunkds7CqsOiEnxln4Bo7Nddl3XhS4pXg5OzwkLqJ971ZVAAnB+DDLnF76N+VnDEiBHaVV8I06SUg==",[m
+           "dev": true,[m
+           "requires": {[m
+[31m-            "glob": "7.1.4"[m
+[32m+[m[32m            "glob": "^7.1.3"[m
+           }[m
+         }[m
+       }[m
+[36m@@ -183,7 +183,7 @@[m
+       "resolved": "https://registry.npmjs.org/@angular/common/-/common-8.2.14.tgz",[m
+       "integrity": "sha512-Qmt+aX2quUW54kaNT7QH7WGXnFxr/cC2C6sf5SW5SdkZfDQSiz8IaItvieZfXVQUbBOQKFRJ7TlSkt0jI/yjvw==",[m
+       "requires": {[m
+[31m-        "tslib": "1.10.0"[m
+[32m+[m[32m        "tslib": "^1.9.0"[m
+       }[m
+     },[m
+     "@angular/compiler": {[m
+[36m@@ -191,7 +191,7 @@[m
+       "resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-8.2.14.tgz",[m
+       "integrity": "sha512-ABZO4E7eeFA1QyJ2trDezxeQM5ZFa1dXw1Mpl/+1vuXDKNjJgNyWYwKp/NwRkLmrsuV0yv4UDCDe4kJOGbPKnw==",[m
+       "requires": {[m
+[31m-        "tslib": "1.10.0"[m
+[32m+[m[32m        "tslib": "^1.9.0"[m
+       }[m
+     },[m
+     "@angular/compiler-cli": {[m
+[36m@@ -201,14 +201,14 @@[m
+       "dev": true,[m
+       "requires": {[m
+         "canonical-path": "1.0.0",[m
+[31m-        "chokidar": "2.1.8",[m
+[31m-        "convert-source-map": "1.7.0",[m
+[31m-        "dependency-graph": "0.7.2",[m
+[31m-        "magic-string": "0.25.3",[m
+[31m-        "minimist": "1.2.0",[m
+[31m-        "reflect-metadata": "0.1.13",[m
+[31m-        "source-map": "0.6.1",[m
+[31m-        "tslib": "1.10.0",[m
+[32m+[m[32m        "chokidar": "^2.1.1",[m
+[32m+[m[32m        "convert-source-map": "^1.5.1",[m
+[32m+[m[32m        "dependency-graph": "^0.7.2",[m
+[32m+[m[32m        "magic-string": "^0.25.0",[m
+[32m+[m[32m        "minimist": "^1.2.0",[m
+[32m+[m[32m        "reflect-metadata": "^0.1.2",[m
+[32m+[m[32m        "source-map": "^0.6.1",[m
+[32m+[m[32m        "tslib": "^1.9.0",[m
+         "yargs": "13.1.0"[m
+       },[m
+       "dependencies": {[m
+[36m@@ -224,8 +224,8 @@[m
+           "integrity": "sha512-5teOsQWABXHHBFP9y3skS5P3d/WfWXpv3FUpy+LorMrNYaT9pI4oLMQX7jzQ2KklNpGpWHzdCXTDT2Y3XGlZBw==",[m
+           "dev": true,[m
+           "requires": {[m
+[31m-            "micromatch": "3.1.10",[m
+[31m-            "normalize-path": "2.1.1"[m
+[32m+[m[32m            "micromatch": "^3.1.4",[m
+[32m+[m[32m            "normalize-path": "^2.1.1"[m
+           },[m
+           "dependencies": {[m
+             "normalize-path": {[m
+[36m@@ -234,7 +234,7 @@[m
+               "integrity": "sha1-GrKLVW4Zg2Oowab35vogE3/mrtk=",[m
+               "dev": true,[m
+               "requires": {[m
+[31m-                "remove-trailing-separator": "1.1.0"[m
+[32m+[m[32m                "remove-trailing-separator": "^1.0.1"[m
+               }[m
+             }[m
+           }[m
+[36m@@ -251,16 +251,16 @@[m
+           "integrity": "sha512-aNdbnj9P8PjdXU4ybaWLK2IF3jc/EoDYbC7AazW6to3TRsfXxscC9UXOB5iDiEQrkyIbWp2SLQda4+QAa7nc3w==",[m
+           "dev": true,[m
+           "requires": {[m
+[31m-            "arr-flatten": "1.1.0",[m
+[31m-            "array-unique": "0.3.2",[m
+[31m-            "extend-shallow": "2.0.1",[m
+[31m-            "fill-range": "4.0.0",[m
+[31m-            "isobject": "3.0.1",[m
+[31m-            "repeat-element": "1.1.3",[m
+[31m-            "snapdragon": "0.8.2",[m
+[31m-            "snapdragon-node": "2.1.1",[m
+[31m-            "split-string": "3.1.0",[m
+[31m-            "to-regex": "3.0.2"[m
+[32m+[m[32m            "arr-flatten": "^1.1.0",[m
+[32m+[m[32m            "array-unique": "^0.3.2",[m
+[32m+[m[32m            "extend-shallow": "^2.0.1",[m
+[32m+[m[32m            "fill-range": "^4.0.0",[m
+[32m+[m[32m            "isobject": "^3.0.1",[m
+[32m+[m[32m            "repeat-element": "^1.1.2",[m
+[32m+[m[32m            "snapdragon": "^0.8.1",[m
+[32m+[m[32m            "snapdragon-node": "^2.0.1",[m
+[32m+[m[32m            "split-string": "^3.0.2",[m
+[32m+[m[32m            "to-regex": "^3.0.1"[m
+           }[m
+         },[m
+         "chokidar": {[m
+[36m@@ -269,18 +269,18 @@[m
+           "integrity": "sha512-ZmZUazfOzf0Nve7duiCKD23PFSCs4JPoYyccjUFF3aQkQadqBhfzhjkwBH2mNOG9cTBwhamM37EIsIkZw3nRgg==",[m
+           "dev": true,[m
+           "requires": {[m
+[31m-            "anymatch": "2.0.0",[m
+[31m-            "async-each": "1.0.3",[m
+[31m-            "braces": "2.3.2",[m
+[31m-            "fsevents": "1.2.11",[m
+[31m-            "glob-parent": "3.1.0",[m
+[31m-            "inherits": "2.0.4",[m
+[31m-            "is-binary-path": "1.0.1",[m
+[31m-            "is-glob": "4.0.1",[m
+[31m-            "normalize-path": "3.0.0",[m
+[31m-            "path-is-absolute": "1.0.1",[m
+[31m-            "readdirp": "2.2.1",[m
+[31m-            "upath": "1.2.0"[m
+[32m+[m[32m            "anymatch": "^2.0.0",[m
+[32m+[m[32m            "async-each": "^1.0.1",[m
+[32m+[m[32m            "braces": "^2.3.2",[m
+[32m+[m[32m            "fsevents": "^1.2.7",[m
+[32m+[m[32m            "glob-parent": "^3.1.0",[m
+[32m+[m[32m            "inherits": "^2.0.3",[m
+[32m+[m[32m            "is-binary-path": "^1.0.0",[m
+[32m+[m[32m            "is-glob": "^4.0.0",[m
+[32m+[m[32m            "normalize-path": "^3.0.0",[m
+[32m+[m[32m            "path-is-absolute": "^1.0.0",[m
+[32m+[m[32m            "readdirp": "^2.2.1",[m
+[32m+[m[32m            "upath": "^1.1.1"[m
+           }[m
+         },[m
+         "emoji-regex": {[m
+[36m@@ -295,7 +295,7 @@[m
+           "integrity": "sha1-Ua99YUrZqfYQ6huvu5idaxxWiQ8=",[m
+           "dev": true,[m
+           "requires": {[m
+[31m-            "is-extendable": "0.1.1"[m
+[32m+[m[32m            "is-extendable": "^0.1.0"[m
+           }[m
+         },[m
+         "fill-range": {[m
+[36m@@ -304,10 +304,10 @@[m
+           "integrity": "sha1-1USBHUKPmOsGpj3EAtJAPDKMOPc=",[m
+           "dev": true,[m
+           "requires": {[m
+[31m-            "extend-shallow": "2.0.1",[m
+[31m-            "is-number": "3.0.0",[m
+[31m-            "repeat-string": "1.6.1",[m
+[31m-            "to-regex-range": "2.1.1"[m
+[32m+[m[32m            "extend-shallow": "^2.0.1",[m
+[32m+[m[32m            "is-number": "^3.0.0",[m
+[32m+[m[32m            "repeat-string": "^1.6.1",[m
+[32m+[m[32m            "to-regex-range": "^2.1.0"[m
+           }[m
+         },[m
+         "fsevents": {[m
+[36m@@ -317,9 +317,9 @@[m
+           "dev": true,[m
+           "optional": true,[m
+           "requires": {[m
+[31m-            "bindings": "1.5.0",[m
+[31m-            "nan": "2.14.0",[m
+[31m-            "node-pre-gyp": "0.14.0"[m
+[32m+[m[32m            "bindings": "^1.5.0",[m
+[32m+[m[32m            "nan": "^2.12.1",[m
+[32m+[m[32m            "node-pre-gyp": "*"[m
+           },[m
+           "dependencies": {[m
+             "abbrev": {[m
+[36m@@ -331,7 +331,8 @@[m
+             "ansi-regex": {[m
+               "version": "2.1.1",[m
+               "bundled": true,[m
+[31m-              "dev": true[m
+[32m+[m[32m              "dev": true,[m
+[32m+[m[32m              "optional": true[m
+             },[m
+             "aproba": {[m
+               "version": "1.2.0",[m
+[36m@@ -352,14 +353,16 @@[m
+             "balanced-match": {[m
+               "version": "1.0.0",[m
+               "bundled": true,[m
+[31m-              "dev": true[m
+[32m+[m[32m              "dev": true,[m
+[32m+[m[32m              "optional": true[m
+             },[m
+             "brace-expansion": {[m
+               "version": "1.1.11",[m
+               "bundled": true,[m
+               "dev": true,[m
+[32m+[m[32m              "optional": true,[m
+               "requires": {[m
+[31m-                "balanced-match": "1.0.0",[m
+[32m+[m[32m                "balanced-match": "^1.0.0",[m
+                 "concat-map": "0.0.1"[m
+               }[m
+             },[m
+[36m@@ -372,17 +375,20 @@[m
+             "code-point-at": {[m
+               "version": "1.1.0",[m
+               "bundled": true,[m
+[31m-              "dev": true[m
+[32m+[m[32m              "dev": true,[m
+[32m+[m[32m              "optional": true[m

@@ -15,6 +15,11 @@ export class PackService {
   findAll(){
     return this.http.get<Pack[]>(this.apiUrl+"/offre/");
   }
+
+  
+  findAllDispo(){
+    return this.http.get<Pack[]>(this.apiUrl+"/offre/dispo");
+  }
   delete(id){
     return this.http.delete(this.apiUrl+"/offre/"+id);
   }
