@@ -5,6 +5,8 @@ import { ContentComponent } from './components/content/content.component';
 import { OffreComponent } from './components/offre/offre.component';
 import { TablesComponent } from './components/tables/tables.component';
 import { DecorationsComponent } from './components/decorations/decorations.component';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { ArticleComponent } from './components/article/article.component';
 
 
 const routes: Routes = [
@@ -14,6 +16,8 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'tables', component: TablesComponent },
     { path: 'decorations', component: DecorationsComponent },
+    { path: 'articles', component: ArticlesComponent},
+    { path: 'article/:id', component:ArticleComponent}
   
 ];
 

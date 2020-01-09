@@ -18,6 +18,8 @@ import { OffreComponent } from './components/offre/offre.component';
 import { TablesComponent } from './components/tables/tables.component';
 import { DecorationsComponent } from './components/decorations/decorations.component';
 import { DecorationServicesService } from 'src/app/services/decoration-services.service';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { ArticleComponent } from './components/article/article.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { DecorationServicesService } from 'src/app/services/decoration-services.
     NavhomeComponent,
     OffreComponent,
     TablesComponent,
-    DecorationsComponent
+    DecorationsComponent,
+    ArticlesComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,

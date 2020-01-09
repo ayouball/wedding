@@ -72,7 +72,7 @@ export class ContentComponent implements OnInit {
       titre : '',
       description : '',
       disponible: true
-    }
+    } as Pack
   }
 
   update(){
