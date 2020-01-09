@@ -15,6 +15,7 @@ export class ContentComponent implements OnInit {
   nvpack: Pack = {
     titre : '',
     description : '',
+    prix : undefined,
     disponible : true
   }
 
