@@ -374,3 +374,26 @@ The file will have its original line endings in your working directory.
 [31m-              "dev": true[m
 [32m+[m[32m              "dev": true,[m
 [32m+[m[32m              "optional": true[m
+             },[m
+             "concat-map": {[m
+               "version": "0.0.1",[m
+               "bundled": true,[m
+[31m-              "dev": true[m
+[32m+[m[32m              "dev": true,[m
+[32m+[m[32m              "optional": true[m
+             },[m
+             "console-control-strings": {[m
+               "version": "1.1.0",[m
+               "bundled": true,[m
+[31m-              "dev": true[m
+[32m+[m[32m              "dev": true,[m
+[32m+[m[32m              "optional": true[m
+             },[m
+             "core-util-is": {[m
+               "version": "1.0.2",[m
+[36m@@ -396,7 +402,7 @@[m
+               "dev": true,[m
+               "optional": true,[m
+               "requires": {[m
+[31m-                "ms": "2.1.2"[m
+[32m+[m[32m                "ms": 

@@ -15,6 +15,9 @@ import { HomeService } from './services/home.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavhomeComponent } from './components/navhome/navhome.component';
 import { OffreComponent } from './components/offre/offre.component';
+import { TablesComponent } from './components/tables/tables.component';
+import { DecorationsComponent } from './components/decorations/decorations.component';
+import { DecorationServicesService } from 'src/app/services/decoration-services.service';
 
 
 @NgModule({
@@ -25,7 +28,9 @@ import { OffreComponent } from './components/offre/offre.component';
     HomeComponent,
     FooterComponent,
     NavhomeComponent,
-    OffreComponent
+    OffreComponent,
+    TablesComponent,
+    DecorationsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,10 @@ import { OffreComponent } from './components/offre/offre.component';
     NgxDropzoneModule,
     FileUploadModule
   ],
-  providers: [HomeService],
+  providers: [
+    DecorationServicesService,
+    HomeService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
