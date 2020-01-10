@@ -15,12 +15,13 @@
     <div id="blog" class="site-section">
         <div class="container">
             <div class="row">
-                <p>{{offre.description}}</p>
+                <p class="offre_desc" >{{offre.description}}</p>
                 <div *ngFor="let image of offre.images" style="text-align: center;width: 100%;">
-                    <img src="http://localhost:8080/photoProduct/{{image.id}}" alt="" width="50%" style="margin: 5px;">
+                    <img src="http://localhost:8080/photoProduct/{{image.id}}" alt="" class="offre_image">
                 </div>
             </div>
         </div>
     </div>
-  
+<app-offre-section></app-offre-section>
+
 <app-footer></app-footer>

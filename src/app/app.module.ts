@@ -20,6 +20,7 @@ import { DecorationsComponent } from './components/decorations/decorations.compo
 import { DecorationServicesService } from 'src/app/services/decoration-services.service';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleComponent } from './components/article/article.component';
+import { OffreSectionComponent } from './components/offre-section/offre-section.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ArticleComponent } from './components/article/article.component';
     TablesComponent,
     DecorationsComponent,
     ArticlesComponent,
-    ArticleComponent
+    ArticleComponent,
+    OffreSectionComponent
   ],
   imports: [
     BrowserModule,

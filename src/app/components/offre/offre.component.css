@@ -1,0 +1,16 @@
+.offre_desc{
+    /* font-family: 'Times New Roman', Times, serif; */
+    font-size: 30px;
+    text-align: justify;
+}
+
+.offre_desc::first-letter{
+    font-weight: bolder;
+    font-size: 50px;
+    text-transform: capitalize;
+}
+
+.offre_image{
+    margin-bottom: 20px;
+    width:80%;
+}
